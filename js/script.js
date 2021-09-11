@@ -1,5 +1,4 @@
 let pokemonList = [
-
     {name : 'Bulbasur',height : 7,types : ['grass','poison'] },
     {name : 'Charmander',height : 3,types : ['Bug','poison'] },
     {name : 'Ivysur',height : 0.3,types : ['Flying','Normal'] },
