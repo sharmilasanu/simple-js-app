@@ -17,7 +17,7 @@ let pokemonList = [
 {name : 'Magmortar',height : 5,types : ['ground','poison'] },
 {name : 'Masmoswine',height : 1.2,types : ['flying','bug'] }
 ]
-for(let i=0;i<= pokemonList.length;i++){
+/*for(let i=0;i<= pokemonList.length;i++){
 document.getElementById('pok_name'+ i).innerHTML = pokemonList[i].name
 if(pokemonList[i].height > 3)
 {
@@ -26,4 +26,8 @@ document.getElementById('pok_height'+ i).innerHTML = pokemonList[i].height+ ' ' 
 else{
     document.getElementById('pok_height'+ i).innerHTML = pokemonList[i].height
 }
-}
+}*/
+pokemonList.forEach(function(pokemon,index) {
+    document.getElementById('pok_name'+ index).innerHTML = pokemon.name
+    document.getElementById('pok_height'+ index).innerHTML = pokemon.height
+  });
