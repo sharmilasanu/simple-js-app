@@ -18,7 +18,9 @@ font-weight : 500;
 font-size:16px;
 color :black;
 text-decoration : none;
+list-style: none;
 }
+/*-------------------------Header Styling ----------------*/
 header 
 {
   display : flex;
@@ -43,8 +45,31 @@ header
   color:#fff;
 
 }
+/*---------------------End of Header Styling ----------------*/
 
-
+  /*----------------------Modal design  ----------------
+#modal{
+  z-index:3;
+  display: display;
+  padding-top:25vh;
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)
+}
+#modal-content{
+  margin:auto;
+  background-color: #FAFAD2;
+  position:relative;
+  padding:0;
+  outline:0;
+  width:40vw;
+  height : 50vh
+}
+*/
 .intro{
   display : flex;
   flex-direction: column;
@@ -53,6 +78,8 @@ header
   padding: 30px 10%;
   height: 50px;
 }
+
+/*----------------------Grid layout - pokemon list ----------------*/
 .grid_layout{
    
         display: grid;
@@ -60,6 +87,9 @@ header
         row-gap: 25px;
         column-gap: 25px;
         margin: 30px;
+}
+.grid_layout > li {
+  list-style : none ;
 }
 .grid_item{
     background-color: #FAFAD2;
@@ -142,6 +172,26 @@ header
   padding: 5px;
   border-radius: 50%
 }
+.button-class {
+ 
+  border: none;
+ 
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #FAFAD2 ;
+  color: black;
+/*  border: 2px solid #4caf50;*/
+}
+/*----------------------end of Grid layout - pokemon list ----------------*/
+
+/*----------------------Footer ----------------*/
 .page-footer {
 
   clear: both;
@@ -155,6 +205,10 @@ header
   width: 40px;
   height: 40px;
   }
+  /*---------------------end of Footer ----------------*/
+
+  /*----------------------Responsive Layout ----------------*/
+
 @media all and (max-width: 500px) {
     .grid_layout{
       grid-template-columns: 1fr;
@@ -164,6 +218,11 @@ header
       grid-column: auto / auto;
       grid-row: auto / auto;
     }
+    .nav_links li 
+{
+  display: inline-block;
+  padding : 0px 5px;
+}
     .nav_links li a
    {
   transition : all 0.3s ease 0s;
@@ -211,4 +270,4 @@ header
         grid-row: auto / auto;
       }
 }
-
+  /*--------------------End of Responsive Layout ----------------*/
