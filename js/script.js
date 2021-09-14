@@ -9,26 +9,27 @@ else{
     document.getElementById('pok_height'+ i).innerHTML = pokemonList[i].height
 }
 }*/
+/* */
 
 let pokemonRepository = (function(){  
     let pokemonList = [
-        {name : 'Bulbasur',height : 7,types : ['grass','poison'] },
-        {name : 'Charmander',height : 3,types : ['Bug','poison'] },
-        {name : 'Ivysur',height : 0.3,types : ['Flying','Normal'] },
-        {name : 'Kakuna',height : 1,types : ['ground','poison'] },
-        {name : 'Blastoise',height : 1,types : ['grass','bug'] },
-        {name : 'Meganium',height : 1,types : ['psychic','water']},
-        {name : 'Ninetales',height : 1,types : ['ground','poison'] },
-        {name : 'Taillow',height : 1,types : ['grass','bug'] },
-        {name : 'Weedle',height : 1,types : ['psychic','water']},
-        {name : 'Squirtle',height : 1,types : ['ground','poison'] },
-        {name : 'Beautifly',height : 1,types : ['ground','poison'] },
-        {name : 'Torterra',height : 1,types : ['ground','poison'] },
-        {name : 'Vespiquen',height : 4,types : ['grass','bug'] },
-        {name : 'Floatzel',height : 5,types : ['psychic','water']},
-        {name : 'Mismagius',height : 6,types : ['ground','poison'] },
-        {name : 'Magmortar',height : 5,types : ['ground','poison'] },
-        {name : 'Masmoswine',height : 1.2,types : ['flying','bug'] }
+        {name : 'bulbasur',height : 7,types : ['grass','poison'] },
+        {name : 'charmander',height : 3,types : ['Bug','poison'] },
+        {name : 'ivysaur',height : 0.3,types : ['Flying','Normal'] },
+        {name : 'kakuna',height : 1,types : ['ground','poison'] },
+        {name : 'blastoise',height : 1,types : ['grass','bug'] },
+        {name : 'meganium',height : 1,types : ['psychic','water']},
+        {name : 'ninetales',height : 1,types : ['ground','poison'] },
+        {name : 'taillow',height : 1,types : ['grass','bug'] },
+        {name : 'weedle',height : 1,types : ['psychic','water']},
+        {name : 'squirtle',height : 1,types : ['ground','poison'] },
+        {name : 'beautifly',height : 1,types : ['ground','poison'] },
+        {name : 'torterra',height : 1,types : ['ground','poison'] },
+        {name : 'vespiquen',height : 4,types : ['grass','bug'] },
+        {name : 'floatzel',height : 5,types : ['psychic','water']},
+        {name : 'mismagius',height : 6,types : ['ground','poison'] },
+        {name : 'magmortar',height : 5,types : ['ground','poison'] },
+        {name : 'mamoswine',height : 1.2,types : ['flying','bug'] }
         ]
     function getAll() {
             return pokemonList;
@@ -37,13 +38,50 @@ let pokemonRepository = (function(){
         {
         pokemonList.push(pokemon);
         }
+        function addListItem (pokemon){
+           
+                           
+            let grid_layout = document.querySelector('.grid_layout')   /* finding the parent element under which new div will be created*/
+            let div = document.createElement('div');                  /*creates div element*/
+            div.classList.add('grid_item');                          /*adds class div element*/
+            grid_layout.appendChild(div)
+           
+            let pokemonimg =  document.createElement("img")
+            pokemonimg.src ="img/"+pokemon.name+".png"
+            div.appendChild(pokemonimg)
+
+            let listpokemon = document.createElement('li')    
+            let button =  document.createElement("button")
+            button.innerText = pokemon.name
+            button.classList.add('button-class')
+            listpokemon.appendChild(button)
+          
+           pokemonimg.appendChild(listpokemon)
+           div.appendChild(listpokemon)
+            
+            button.addEventListener('click', function () {
+                
+                showDetails(pokemon)
+            })
+        }
+        function showDetails(pokemon){
+        
+            console.log(pokemon.name)
+        }
+        
    return {
        getAll : getAll,
-       add : add
+       add : add,
+       addListItem : addListItem,
+       showDetails : showDetails
    }
 })();
-let pokemonList = pokemonRepository.getAll()
+/*let pokemonList = pokemonRepository.getAll()
 pokemonList.forEach(function(pokemon,index) {
     document.getElementById('pok_name'+ index).innerHTML = pokemon.name
     document.getElementById('pok_height'+ index).innerHTML = pokemon.height
   });
+*/
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon)
+});
