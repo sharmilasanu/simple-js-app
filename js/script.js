@@ -2,7 +2,7 @@
 
 let pokemonRepository = (function(){  
     let pokemonList = []
-        let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+        let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
         let modalContainer = document.querySelector('#modal-container');
     function getAll() {
             return pokemonList;
@@ -27,50 +27,25 @@ let pokemonRepository = (function(){
             loadDetails
 
             let listpokemon = document.createElement('li')    
+           // $( 'li' ).addClass("list-group-item")    /* Bootstrap utility classes */
             let button =  document.createElement("button")
             button.innerText = pokemon.name
-            button.classList.add('button-class')
+            $("button").addClass("btn btn-primary");  /* Bootstrap utility classes */
             listpokemon.appendChild(button)
             
        //    pokemonimg.appendChild(listpokemon)
            div.appendChild(listpokemon)
-            
+           button.setAttribute('data-target','#pokemonModal');
+           button.setAttribute('data-toggle','modal');
             button.addEventListener('click', function () {
                 
-                showModal();
+                
                 showDetails(pokemon);
                 
             })
         }
         
-        function showModal() {
-          
-          modalContainer.innerHTML = '';
-          let modal = document.createElement('div');
-          modal.classList.add('modal');
-      
-          let closeButtonElement = document.createElement('button');
-          closeButtonElement.classList.add('modal-close');
-          closeButtonElement.innerText = 'Close';
-          closeButtonElement.addEventListener('click', hideModal);
-      
-          let pokemonHeight = document.createElement('h3');
-          pokemonHeight.classList.add('pokemon-height');
-
-          let pokemonimg = document.createElement('img');
-          pokemonimg.classList.add('pokemon-img');
-
-         
-      
-          modal.appendChild(closeButtonElement);
-          modal.appendChild(pokemonHeight);
-          modal.appendChild(pokemonimg);
-         
-          modalContainer.appendChild(modal);
-      
-      
-          modalContainer.classList.add('is-visible');
-        }
+        
       
         function hideModal() {
           modalContainer.classList.remove('is-visible');
@@ -112,19 +87,23 @@ let pokemonRepository = (function(){
               item_imageUrl = details.sprites.front_default;
               item_height = details.height;
               item_types = details.types;
-              let pokemonHeight = document.querySelector('.pokemon-height');
-              let pokemonimg = document.querySelector('.pokemon-img');
+              let pokemonHeight = document.querySelector('#pokemon-height');
+              let pokemonimg = document.querySelector('#pokemon-img');
               pokemonHeight.innerHTML = 'Height : ' + item_height;
+              let pokemonName = document.querySelector('#pokemonModalTitle');
+              pokemonName.innerHTML = details.name
               pokemonimg.src = item_imageUrl
+              
               for(i=0;i<item_types.length;i++){
                 
-                let modal = document.querySelector('.modal');
-                let pokemontypes = document.createElement('li');
+                let modal = document.querySelector('.modal-body');
+                
                 let types_btn =  document.createElement("button");
                 types_btn.innerText = item_types[i].type.name
-                modal.appendChild(pokemontypes);
+                types_btn.classList.add('pok_typ_btn')
                 types_btn.classList.add(item_types[i].type.name)
-                pokemontypes.appendChild(types_btn)
+                
+                modal.appendChild(types_btn)
 
 
               }
@@ -149,5 +128,19 @@ pokemonRepository.loadList().then(function () {
     });
   });
 
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    var mybutton = document.getElementById("gotoTop");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
 
- 
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
