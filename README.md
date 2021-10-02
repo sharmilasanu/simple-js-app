@@ -1,4 +1,4 @@
-#  Pokédex
+#  Pokédex :ledger:
 ## Purpose
 Pokédex app will let the users to explore more information about their favorite Pokemon Charchter
 
