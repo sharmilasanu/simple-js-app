@@ -14,7 +14,7 @@ Pokedex app has the following features,
 
 ## Supported Browsers
 
-Chrome, Firefox, Safari, Edge, and Internet Explorer 11
+:small_blue_diamond:Chrome, :small_blue_diamond:Firefox, :small_blue_diamond: Safari, :small_blue_diamond:Edge, and Internet Explorer 11
 
 ## Tools/Technologies used
 
@@ -22,6 +22,3 @@ Chrome, Firefox, Safari, Edge, and Internet Explorer 11
 :large_orange_diamond:  CSS
 :large_orange_diamond: Javascript
 
-
-# Purpose
-Pokédex app will display a list of Pokémon
