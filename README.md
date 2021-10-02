@@ -18,9 +18,9 @@ Chrome, Firefox, Safari, Edge, and Internet Explorer 11
 
 ## Tools/Technologies used
 
-● HTML
-● CSS
-● Javascript
+:large_orange_diamond:  HTML
+:large_orange_diamond:  CSS
+:large_orange_diamond: Javascript
 
 
 # Purpose
