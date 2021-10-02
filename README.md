@@ -23,3 +23,5 @@ Chrome, Firefox, Safari, Edge, and Internet Explorer 11
 ● Javascript
 
 
+# Purpose
+Pokédex app will display a list of Pokémon
