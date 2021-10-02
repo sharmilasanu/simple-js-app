@@ -30,7 +30,7 @@ let pokemonRepository = (function(){
            // $( 'li' ).addClass("list-group-item")    /* Bootstrap utility classes */
             let button =  document.createElement("button")
             button.innerText = pokemon.name
-            $("button").addClass("btn btn-primary");  /* Bootstrap utility classes */
+            $(button).addClass("btn btn-primary");  /* Bootstrap utility classes */
             listpokemon.appendChild(button)
             
        //    pokemonimg.appendChild(listpokemon)
@@ -97,14 +97,15 @@ let pokemonRepository = (function(){
               for(i=0;i<item_types.length;i++){
                 
                 let modal = document.querySelector('.modal-body');
-                
+                let pokemonTypes = document.querySelector('#pokemon-types');
+                pokemonTypes.innerHTML = "";
                 let types_btn =  document.createElement("button");
                 types_btn.innerText = item_types[i].type.name
                 types_btn.classList.add('pok_typ_btn')
                 types_btn.classList.add(item_types[i].type.name)
                 
                 modal.appendChild(types_btn)
-
+                pokemonTypes.appendChild(types_btn)
 
               }
 
