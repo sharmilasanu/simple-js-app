@@ -48,7 +48,7 @@ list-style: none;
   cursor: pointer;
   padding: 25px;
   border-radius: 4px;
-
+  background-color: rgb(65 79 160 / 81%);
 }
   
 .intro{
